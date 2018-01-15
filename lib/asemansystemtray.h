@@ -87,7 +87,7 @@ public slots:
 protected:
     void activated_slt(QSystemTrayIcon::ActivationReason reason);
     void refreshIcon();
-    QImage generateIcon(const QString & img, int count );
+    QImage generateIcon(const QString & img, int count, int textSize = 20);
     void refreshVisible();
 
 private:

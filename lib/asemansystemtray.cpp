@@ -220,7 +220,7 @@ void AsemanSystemTray::refreshIcon()
     p->sysTray->setIcon( QPixmap::fromImage(img) );
 }
 
-QImage AsemanSystemTray::generateIcon(const QString &filePath, int count)
+QImage AsemanSystemTray::generateIcon(const QString &filePath, int count, int textSize)
 {
     if(filePath.isEmpty())
         return QImage();
@@ -246,6 +246,7 @@ QImage AsemanSystemTray::generateIcon(const QString &filePath, int count)
     painter.setPen(p->badgeStrokeColor);
     painter.drawPath( path );
     painter.setPen(p->badgeTextColor);
+    painter.setFont(QFont("Arial", textSize));
     painter.drawText( rct, Qt::AlignCenter | Qt::AlignHCenter, QString::number(count) );
 
     return res;
